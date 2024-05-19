@@ -27,6 +27,9 @@ export default function Header() {
   // Recetas
   const searchRecipes = useAppStore(state => state.searchRecipes)
 
+  // Notificaciones
+  const showNotification = useAppStore(state => state.showNotification)
+
   //#endregion
 
   //#region Functions
@@ -42,7 +45,7 @@ export default function Header() {
 
     // TODO: Validar
     if (Object.values(searchFilter).includes("")) {
-      console.log("Todos los campos son requeridos.");
+      showNotification({ text: "Todos los campos son obligatorios", error: true, })
       return
     }
 

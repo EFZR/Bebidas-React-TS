@@ -10,6 +10,9 @@ export default function Modal() {
   const closeModal = useAppStore((state) => state.closeModal)
   const recipe = useAppStore((state) => state.recipe)
 
+  const handleFavorite = useAppStore((state) => state.handleFavorite)
+  const favoriteExists = useAppStore((state) => state.favoriteExists)
+
   //#endregion
 
   //#region Functions
@@ -83,6 +86,21 @@ export default function Modal() {
                   <p className='text-lg'>
                     {recipe.strInstructions}
                   </p>
+
+                  <div className='mt-5 flex justify-between gap-4'>
+                    <button
+                      type="button"
+                      className='w-full rounded bg-gray-600 p-3 font-bold uppercase text-white shadow hover:bg-gray-500'
+                      onClick={closeModal}>
+                      Cerrar
+                    </button>
+                    <button
+                      type="button"
+                      className='w-full rounded bg-orange-600 p-3 font-bold uppercase text-white shadow hover:bg-orange-500'
+                      onClick={() => handleFavorite(recipe)}>
+                      {favoriteExists(recipe.idDrink) ? "Eliminar de Favoritos" : "Agregar a Favoritos"}
+                    </button>
+                  </div>
                 </DialogPanel>
               </TransitionChild>
             </div>

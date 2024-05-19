@@ -20,7 +20,7 @@ export default function Home() {
           }
         </div>
       ) : (
-        <p className="my-10 text-center text-2xl">
+        <p className="my-10 text-center text-2xl font-bold">
           Aún no hay resultados. Por favor, utiliza el formulario para buscar tus bebidas favoritas...
         </p>
       )}
